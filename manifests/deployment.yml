@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "myakscluster-bf40"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "myakscluster-bf40"
+  template:
+    metadata:
+      labels:
+        app: "myakscluster-bf40"
+    spec:
+      containers:
+        - name: "myakscluster-bf40"
+          image: "jintfs.azurecr.io/myakscluster"
+          ports:
+          - containerPort: 80
