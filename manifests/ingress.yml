@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "myakscluster-bf40"
+    labels:
+        app: "myakscluster-bf40"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: myakscluster8fdc-myakscluster-bf40.43b915d1bee647339ad2.japaneast.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "myakscluster-bf40"
+                servicePort: 80
